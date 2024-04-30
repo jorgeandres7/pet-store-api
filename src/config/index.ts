@@ -1,3 +1,3 @@
 // config/index.ts
 export * from './envs';
-export * from './validators';//1
+export * from './validator';//1
