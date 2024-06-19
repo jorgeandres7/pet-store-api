@@ -1,5 +1,5 @@
 import { UserEntity } from "../entities/auth/user.entity";//2
-import { RegisterUserDto } from '../dtos/auth/register-user.dto';//3
+import { RegisterUserDto } from '../dto/auth/register-user.dto';//3
 
 
 export abstract class AuthDataSource { // 1
