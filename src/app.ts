@@ -9,10 +9,11 @@ import { Server } from "./presentation/server";
 
 async function main() {
   // todo: await base de datos
-  await MongoDatabase.connect({//1
+  await MongoDatabase.connect({
+    //1
     //3
-    dbName: envs.MONGO_DB_NAME,
-    mongoUrl: envs.MONGO_URL,
+    dbName: "",
+    mongoUrl: "",
   });
 
   // todo: inicio de nuestro server
