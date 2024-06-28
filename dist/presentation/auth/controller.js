@@ -1,18 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
-const domain_1 = require("./../../domain"); // 1
+const domain_1 = require("../../domain");
 class AuthController {
-    constructor() {
+    constructor(authRepository //9
+    ) {
+        this.authRepository = authRepository;
+        this.handleError = (error, res) => {
+            if (error instanceof domain_1.CustomError) {
+                return res.status(error.statusCode).json({ error: error.message });
+            }
+            return res.status(500).json({ error: 'Internal Server Error' });
+        };
         this.registerUser = (req, res) => {
             const [error, registerUserDto] = domain_1.RegisterUserDto.create(req.body);
             if (error)
                 return res.status(400).json({ error });
-            res.json(registerUserDto);
+            this.authRepository
+                .register(registerUserDto)
+                .then((user) => res.json(user))
+                .catch((error) => this.handleError(error, res));
         };
         this.loginUser = (req, res) => {
-            res.json('loginUser controller'); // 8
-        }; // 6
-    } // 2
+            res.json('loginUser controller');
+        };
+    }
 }
 exports.AuthController = AuthController;

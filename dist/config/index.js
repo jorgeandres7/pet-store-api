@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // config/index.ts
 __exportStar(require("./envs"), exports);
 __exportStar(require("./validator"), exports); //1
+__exportStar(require("./bcrypt"), exports);

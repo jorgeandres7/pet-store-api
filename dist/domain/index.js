@@ -17,3 +17,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./dto/auth/register-user.dto"), exports);
 __exportStar(require("./entities/auth/user.entity"), exports);
+__exportStar(require("./errors/custom.error"), exports);
+__exportStar(require("./datasources/auth.datasource"), exports);
+__exportStar(require("./repositories/auth.repository"), exports);
